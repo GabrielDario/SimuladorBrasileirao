@@ -17,23 +17,34 @@
                 <img src="https://logospng.org/download/brasileirao-serie-a/logo-brasileirao-256.png">
             </div>
 
-            <div class="col-sm-8">
+            <div class="col-sm-6">
 
                 <h1>Gerador de Brasilerão</h1>
                 <input type="submit" class="btn btn-primary float-right mb-3" id="rodada" value="Proxima rodada">
 
-                <input type="submit" class="btn btn-success float-right mb-3" id="tabela" value="Mostrar Tabela">
+                <input type="submit" class="btn btn-success float-right mb-3" id="mostrarRodada" value="Mostrar Rodada">
+
+                <input type="submit" class="btn btn-warning float-right mb-3" id="mostrarTabela" value="Mostrar Tabela">
 
                 <input type="submit" class="btn btn-danger float-right mb-3" id="zerar" value="Zerar Tabela">
-                <h5>Times: </h5>
+
+                <h2>Rodada</h2>
+                <span>
+                 
+                </span>
+
+                <h2>Tabela de jogos</h2>
+                <table class="table table-striped">
+                    <!-- <tr> <td>Vasco</td></tr> -->
+                </table>
             </div>
-      
-            
+
+
         </div>
-       
+
     </div>
-    
+
 </body>
 <script src="script.js"></script>
-
+<script src="gerarRodada.js"></script>
 </html>
