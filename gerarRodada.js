@@ -1,3 +1,5 @@
+const spanId = document.getElementById("spanId");
+
 const retornarRodada = () => {
     nRodada++;
     return nRodada;
@@ -19,15 +21,38 @@ const gerarRodada = () => {
     clubeCopias = definirTime(clubeCopias, 2);
     clubeCopias = definirTime(clubeCopias, 1);
 
-    console.log(timesDaRodada);
-    console.log(clubeCopias);
+    verificarEgerarRodada();
+    escreverRodada();
 };
 
 const definirTime = (clubeCopias, x) => {
-    let timeCopia = clubeCopias[Math.floor(Math.random() * x)].nome;
+    let timeCopia = clubeCopias[Math.floor(Math.random() * x)];
     clubeCopias = clubeCopias.filter(item => item != timeCopia);
 
-    
     timesDaRodada.push(timeCopia);
     return clubeCopias;
+}
+
+const verificarEgerarRodada = () => {
+    //Adiciona
+    for (let i = 0; todosConfrontos.length < 4; i = i + 2) {
+
+        todosConfrontos.push(timesDaRodada[i] + timesDaRodada[i + 1]);
+    }
+
+    //Verifica
+}
+
+const escreverRodada = () => {
+    console.log(timesDaRodada);
+
+    for (i = 0; i < timesDaRodada.length; i = i + 2) {
+        let criandoRodada = timesDaRodada[i] + " x " + timesDaRodada[i + 1];
+        const p = document.createElement("p");
+        const criandoTexto = document.createTextNode(criandoRodada);
+        p.appendChild(criandoTexto);
+
+        span.appendChild(p);
+    }
+
 }
