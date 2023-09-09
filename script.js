@@ -1,12 +1,12 @@
 //Lista de times e seu atributos
-let clubes = [{ nome: 'São Paulo',pontos: 0, saldoGols: 0, vitorias: 0 },
-{ nome: 'Vasco',pontos: 0, saldoGols: 0, vitorias: 0  },
-{ nome: 'Inter' ,pontos: 0, saldoGols: 0, vitorias: 0 },
-{ nome: 'Grêmio' ,pontos: 0, saldoGols: 0, vitorias: 0 },
-{ nome: 'Flamengo',pontos: 0, saldoGols: 0, vitorias: 0  },
-{ nome: 'Goiás' ,pontos: 0, saldoGols: 0, vitorias: 0 },
-{ nome: 'Palmeiras' ,pontos: 0, saldoGols: 0, vitorias: 0 },
-{ nome: 'Cruzeiro' ,pontos: 0, saldoGols: 0, vitorias: 0 }];
+let clubes = [{ nome: 'São Paulo',pontos: 0,  vitorias: 0,saldoGols: 0 },
+{ nome: 'Vasco',pontos: 0,  vitorias: 0 ,saldoGols: 0 },
+{ nome: 'Inter' ,pontos: 0,  vitorias: 0 ,saldoGols: 0},
+{ nome: 'Grêmio' ,pontos: 0,  vitorias: 0,saldoGols: 0 },
+{ nome: 'Flamengo',pontos: 0, vitorias: 0,saldoGols: 0  },
+{ nome: 'Goiás' ,pontos: 0,  vitorias: 0 ,saldoGols: 0},
+{ nome: 'Palmeiras' ,pontos: 0, vitorias: 0,saldoGols: 0 },
+{ nome: 'Cruzeiro' ,pontos: 0,  vitorias: 0 ,saldoGols: 0}];
 
 //Botões
 let rodada = document.getElementById("rodada");
@@ -15,8 +15,10 @@ let mostrarTabela = document.getElementById("mostrarTabela");
 let zerar = document.getElementById("zerar");
 
 //Montar
-const tabela = document.querySelector("table");
+const tabela = document.getElementById("tabela");
 const span = document.querySelector("span");
+const spanId = document.getElementById("spanId");
+const verde = document.getElementById("verde");
 
 //Variáveis auxiliares
 let nRodada = 0;
@@ -25,14 +27,67 @@ let nRodada = 0;
 let todosConfrontos = [];
 let timesDaRodada = [];
 
+const gerarTabela = () => {
+    console.log('gerando');
+    console.log(clubes);
+
+    clubes = ordenarTabela();
+    for(let i = 0; i < 8; i++) {
+        const linha = tabela.insertRow(-1);
+        const col1 = linha.insertCell(0)  
+        const col2 = linha.insertCell(1)
+        const col3 = linha.insertCell(2)
+        const col4 = linha.insertCell(3)
+        const col5 = linha.insertCell(4)
+
+      col1.innerText = i+1 + "º" ;
+      col2.innerText = clubes[i].nome ;
+      col3.innerText = clubes[i].pontos ;
+      col4.innerText = clubes[i].vitorias ;
+      col5.innerText = clubes[i].saldoGols ;
+     
+    }
+};
+const ordenarTabela = () => {
+    
+    clubes.sort(function (b, a) {
+        if (a.pontos > b.pontos) {
+            return 1;
+        }
+        if (a.pontos < b.pontos) {
+            return -1;
+        }
+        return 0;
+    });
+    for (i = 0; i < clubes.length - 1; i++) {
+        if (clubes[i].pontos == clubes[i + 1].pontos) {
+            if (clubes[i].vitorias < clubes[i + 1].vitorias) {
+                let copairObjeto = clubes[i + 1];
+                clubes[i + 1] = clubes[i];
+                clubes[i] = copairObjeto;
+            }
+        }
+    }
+
+
+    return clubes;
+}
 rodada.addEventListener("click", e => {
     nRodada = retornarRodada();
     gerarRodada();
 });
 
-tabela.addEventListener("click", e => {
+mostrarRodada.addEventListener("click", e => {
+   
+});
+
+mostrarTabela.addEventListener("click", e => {
 });
 
 zerar.addEventListener("click", e => {
 
+});
+
+window.addEventListener("load", () => {
+    gerarTabela();
 });

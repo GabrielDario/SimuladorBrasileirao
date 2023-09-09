@@ -1,4 +1,4 @@
-const spanId = document.getElementById("spanId");
+
 
 const retornarRodada = () => {
     nRodada++;
@@ -6,6 +6,7 @@ const retornarRodada = () => {
 };
 
 const gerarRodada = () => {
+    timesDaRodada = [];
     let clubeCopias = [];
 
     for (i = 0; i < clubes.length; i++) {
@@ -45,14 +46,15 @@ const verificarEgerarRodada = () => {
 
 const escreverRodada = () => {
     console.log(timesDaRodada);
-
+    const newDiv = document.createElement("div");
+    newDiv.className = 'verde';
     for (i = 0; i < timesDaRodada.length; i = i + 2) {
         let criandoRodada = timesDaRodada[i] + " x " + timesDaRodada[i + 1];
         const p = document.createElement("p");
         const criandoTexto = document.createTextNode(criandoRodada);
         p.appendChild(criandoTexto);
-
-        span.appendChild(p);
+        span.appendChild(newDiv);
+        newDiv.appendChild(p);
     }
 
 }

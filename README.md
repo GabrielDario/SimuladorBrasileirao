@@ -8,7 +8,7 @@ Funçôes principais
  - Fazer junto a tabela de pontos a cada rodada
  - Tabela ja começa de cara
  - O programa tem quatri botões: 
-               Clique por rodada, mostrar rodada, mostrar classificação, pesquisar rodada e zerar tudo
+               Clique por rodada, mostrar rodada, mostrar classificação, (pesquisar rodada)depois e zerar tudo
  - Priorizar tabela ou resultados da rodada
  - Fazer não repetir os times jogados
  

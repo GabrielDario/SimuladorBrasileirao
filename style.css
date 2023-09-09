@@ -4,3 +4,14 @@
 span {
     background: black;
 }
+#spanId div {
+    display: inline-grid;
+    padding: 5px;
+    margin: 5px;
+
+}
+.verde {
+    background-color: green;
+    border-style: dashed;
+    border-color: cornflowerblue;
+}
