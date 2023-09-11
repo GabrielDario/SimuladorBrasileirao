@@ -21,7 +21,8 @@ const gerarRodada = () => {
     clubeCopias = definirTime(clubeCopias, 3);
     clubeCopias = definirTime(clubeCopias, 2);
     clubeCopias = definirTime(clubeCopias, 1);
-
+    
+    quebrarLinha();
     verificarEgerarRodada();
     escreverRodada();
 };
@@ -45,7 +46,7 @@ const verificarEgerarRodada = () => {
 }
 
 const escreverRodada = () => {
-    console.log(timesDaRodada);
+ 
     const newDiv = document.createElement("div");
     newDiv.className = 'verde';
     for (i = 0; i < timesDaRodada.length; i = i + 2) {
@@ -57,4 +58,12 @@ const escreverRodada = () => {
         newDiv.appendChild(p);
     }
 
+}
+
+const quebrarLinha = () => {
+    console.log(nRodada)
+    if(nRodada %4 == 0) {
+        var br = document.createElement("br");
+        spanId.appendChild(br);
+    }
 }

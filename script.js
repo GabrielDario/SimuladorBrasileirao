@@ -1,10 +1,10 @@
 //Lista de times e seu atributos
 let clubes = [{ nome: 'São Paulo',pontos: 0,  vitorias: 0,saldoGols: 0 },
-{ nome: 'Vasco',pontos: 0,  vitorias: 0 ,saldoGols: 0 },
+{ nome: 'Vasco',pontos: 0,  vitorias: 0,saldoGols: 0},
 { nome: 'Inter' ,pontos: 0,  vitorias: 0 ,saldoGols: 0},
 { nome: 'Grêmio' ,pontos: 0,  vitorias: 0,saldoGols: 0 },
 { nome: 'Flamengo',pontos: 0, vitorias: 0,saldoGols: 0  },
-{ nome: 'Goiás' ,pontos: 0,  vitorias: 0 ,saldoGols: 0},
+{ nome: 'Goiás' ,pontos: 0,  vitorias:0 ,saldoGols: 0},
 { nome: 'Palmeiras' ,pontos: 0, vitorias: 0,saldoGols: 0 },
 { nome: 'Cruzeiro' ,pontos: 0,  vitorias: 0 ,saldoGols: 0}];
 
@@ -28,9 +28,7 @@ let todosConfrontos = [];
 let timesDaRodada = [];
 
 const gerarTabela = () => {
-    console.log('gerando');
-    console.log(clubes);
-
+ 
     clubes = ordenarTabela();
     for(let i = 0; i < 8; i++) {
         const linha = tabela.insertRow(-1);
@@ -69,12 +67,22 @@ const ordenarTabela = () => {
         }
     }
 
+    for (i = 0; i < clubes.length - 1; i++) {
+        if (clubes[i].vitorias == clubes[i + 1].vitorias && clubes[i].pontos == clubes[i + 1].pontos) {
+            if (clubes[i].saldoGols < clubes[i + 1].saldoGols) {
+                let copairObjeto = clubes[i + 1];
+                clubes[i + 1] = clubes[i];
+                clubes[i] = copairObjeto;
+            }
+        }
+    }
 
     return clubes;
 }
 rodada.addEventListener("click", e => {
-    nRodada = retornarRodada();
     gerarRodada();
+    nRodada = retornarRodada();
+    
 });
 
 mostrarRodada.addEventListener("click", e => {

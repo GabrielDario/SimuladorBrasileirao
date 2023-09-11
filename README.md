@@ -26,3 +26,7 @@ Funções secundárias
  - Padrão será rodada depois tabela
  - Apenas irá mostrar uma rodada completa com todos os jogos e a classificação
 
+----------------------------------------------------------------------
+No momento
+        - Jogar para baixo as rodadas
+        - Pensei em uma maneira de não repetir times
