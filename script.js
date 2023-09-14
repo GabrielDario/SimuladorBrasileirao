@@ -1,12 +1,12 @@
 //Lista de times e seu atributos
-let clubes = [{ nome: 'São Paulo',pontos: 0,  vitorias: 0,saldoGols: 0 },
-{ nome: 'Vasco',pontos: 0,  vitorias: 0,saldoGols: 0},
-{ nome: 'Inter' ,pontos: 0,  vitorias: 0 ,saldoGols: 0},
-{ nome: 'Grêmio' ,pontos: 0,  vitorias: 0,saldoGols: 0 },
-{ nome: 'Flamengo',pontos: 0, vitorias: 0,saldoGols: 0  },
-{ nome: 'Goiás' ,pontos: 0,  vitorias:0 ,saldoGols: 0},
-{ nome: 'Palmeiras' ,pontos: 0, vitorias: 0,saldoGols: 0 },
-{ nome: 'Cruzeiro' ,pontos: 0,  vitorias: 0 ,saldoGols: 0}];
+let clubes = [{ nome: 'São Paulo',pontos: 0,  vitorias: 0,saldoGols: 0, golsRodada: 0 },
+{ nome: 'Vasco',pontos: 0,  vitorias: 0,saldoGols: 0,golsRodada: 0 },
+{ nome: 'Inter' ,pontos: 0,  vitorias: 0 ,saldoGols: 0,golsRodada: 0 },
+{ nome: 'Grêmio' ,pontos: 0,  vitorias: 0,saldoGols: 0,golsRodada: 0 },
+{ nome: 'Flamengo',pontos: 0, vitorias: 0,saldoGols: 0 ,golsRodada: 0 },
+{ nome: 'Goiás' ,pontos: 0,  vitorias:0 ,saldoGols: 0,golsRodada: 0 },
+{ nome: 'Palmeiras' ,pontos: 0, vitorias: 0,saldoGols: 0,golsRodada: 0},
+{ nome: 'Cruzeiro' ,pontos: 0,  vitorias: 0 ,saldoGols: 0,golsRodada: 0}];
 
 //Botões
 let rodada = document.getElementById("rodada");
@@ -82,7 +82,7 @@ const ordenarTabela = () => {
 rodada.addEventListener("click", e => {
     gerarRodada();
     nRodada = retornarRodada();
-    
+    gerenciarPontos();
 });
 
 mostrarRodada.addEventListener("click", e => {

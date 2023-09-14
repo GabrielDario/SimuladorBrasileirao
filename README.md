@@ -28,5 +28,7 @@ Funções secundárias
 
 ----------------------------------------------------------------------
 No momento
-        - Jogar para baixo as rodadas
+        - Gerar Gols
+        - Mudar tabela
+        - Trocar tabeela para rodada
         - Pensei em uma maneira de não repetir times
