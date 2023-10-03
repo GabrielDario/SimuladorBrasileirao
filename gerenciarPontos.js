@@ -2,10 +2,7 @@ let gols = Math.floor(Math.random() * 165 + 1);
 
 
 const gerenciarPontos = () => {
-    console.log('Gerenciou');
-    console.log(timesDaRodada);
-
-    compararGols();
+    compararGols(timesDaRodada);
 };
 
 const verificarGols = (gols) => {
@@ -35,30 +32,36 @@ const verificarGols = (gols) => {
 }
 
 const compararGols = () => {
-    let aux;
-    for (i = 0; i < 8; i = i + 2) {
-        if (timesDaRodada[i].golsRodada > timesDaRodada[i + 1].golsRodada) {
-            console.log('time 1 ganhou');
+    let pT;
+    let sT;
 
-            for(i = 0; i < clubes.length; i++) {
-                console.log(clubes[i].nome);
-                if(clubes[i].nome == timesDaRodada[i].time) {
-                    console.log('Axou')
-                    aux = i;
-                }
+    for (i = 0; i < 8; i = i + 2) { // PERCORRER OS TIMES
+        
+        for(j = 0; j < clubes.length; j++) { //Percorrer primeiro time esquerda
+            timeGanhou = timesDaRodada[i].time;
+            if(clubes[j].nome == timeGanhou) {
+                pT = j;
             }
-         
-            let posicao1 = clubes.indexOf(timesDaRodada[i].time);
-    
-            clubes[posicao1].pontos = grupo[posicao1].pontos + 3;
-    
-        //    grupo[posicao1].saldoGols = grupo[posicao1].saldoGols + Number(golsPrimeiroTime - golsSegundoTime);
-          //  grupo[posicao2].saldoGols = grupo[posicao2].saldoGols + Number(golsSegundoTime - golsPrimeiroTime);
+        }
+
+        for(j = 0; j < clubes.length; j++) { //Percorrer primeiro time direita
+            timeGanhou = timesDaRodada[i+1].time;
+            if(clubes[j].nome == timeGanhou) {
+                sT = j;
+            }
+        }
+
+
+        if (timesDaRodada[i].golsRodada > timesDaRodada[i + 1].golsRodada) {  
+            clubes[pT].pontos = clubes[pT].pontos + 3;
 
         } else if (timesDaRodada[i].golsRodada < timesDaRodada[i + 1].golsRodada) {
-            console.log('time 2 ganhou');
+            
+            clubes[sT].pontos = clubes[sT].pontos + 3;
+
         } else {
-            console.log('Empatou');
+            clubes[pT].pontos = clubes[pT].pontos + 1;
+            clubes[sT].pontos = clubes[sT].pontos + 1;
         }
     }
 }

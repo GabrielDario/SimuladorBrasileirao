@@ -7,7 +7,7 @@ Funçôes principais
  - Criar rodadas 7 rodadas com os outros times sem repetir ida,Depois Ida e Volta, depois 20
  - Fazer junto a tabela de pontos a cada rodada
  - Tabela ja começa de cara
- - O programa tem quatri botões: 
+ - O programa tem quatro botões: 
                Clique por rodada, mostrar rodada, mostrar classificação, (pesquisar rodada)depois e zerar tudo
  - Priorizar tabela ou resultados da rodada
  - Fazer não repetir os times jogados

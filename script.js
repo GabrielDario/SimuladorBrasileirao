@@ -80,9 +80,11 @@ const ordenarTabela = () => {
     return clubes;
 }
 rodada.addEventListener("click", e => {
+    tabela.innerHTML = "";
     gerarRodada();
     nRodada = retornarRodada();
     gerenciarPontos();
+    gerarTabela();
 });
 
 mostrarRodada.addEventListener("click", e => {
