@@ -30,6 +30,24 @@ let timesDaRodada = [];
 const gerarTabela = () => {
  
     clubes = ordenarTabela();
+    const linha = tabela.insertRow(-1);
+    const col1 = linha.insertCell(0)  
+    const col2 = linha.insertCell(1)
+    const col3 = linha.insertCell(2)
+    const col4 = linha.insertCell(3)
+    const col5 = linha.insertCell(4)
+
+  col1.innerText = 'Posição' ;
+  col1.style.fontWeight = '900';
+  col2.innerText = 'Time' ;
+  col2.style.fontWeight = '900';
+  col3.innerText = 'Pontos' ;
+  col3.style.fontWeight = '900';
+  col4.innerText = 'Vitórias' ;
+  col4.style.fontWeight = '900';
+  col5.innerText = 'Saldo de Gols' ;
+  col5.style.fontWeight = '900';
+ 
     for(let i = 0; i < 8; i++) {
         const linha = tabela.insertRow(-1);
         const col1 = linha.insertCell(0)  

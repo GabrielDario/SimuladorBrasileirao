@@ -34,7 +34,8 @@ const verificarGols = (gols) => {
 const compararGols = () => {
     let pT;
     let sT;
-
+    let sgpT;
+    let sgsT;
     for (i = 0; i < 8; i = i + 2) { // PERCORRER OS TIMES
         
         for(j = 0; j < clubes.length; j++) { //Percorrer primeiro time esquerda
@@ -49,19 +50,30 @@ const compararGols = () => {
             if(clubes[j].nome == timeGanhou) {
                 sT = j;
             }
-        }
-
+        }0
+ 
 
         if (timesDaRodada[i].golsRodada > timesDaRodada[i + 1].golsRodada) {  
             clubes[pT].pontos = clubes[pT].pontos + 3;
+            clubes[pT].vitorias = clubes[pT].vitorias + 1;
 
+            sgpT = timesDaRodada[i].golsRodada - timesDaRodada[i+1].golsRodada;
+
+            clubes[pT].saldoGols = clubes[pT].saldoGols + sgpT;
+            clubes[sT].saldoGols = clubes[sT].saldoGols - sgpT;
         } else if (timesDaRodada[i].golsRodada < timesDaRodada[i + 1].golsRodada) {
             
             clubes[sT].pontos = clubes[sT].pontos + 3;
+            clubes[sT].vitorias = clubes[sT].vitorias + 1;
 
+            sgpT = timesDaRodada[i+1].golsRodada - timesDaRodada[i].golsRodada;
+
+            clubes[pT].saldoGols = clubes[pT].saldoGols - sgpT;
+            clubes[sT].saldoGols = clubes[sT].saldoGols + sgpT;
         } else {
             clubes[pT].pontos = clubes[pT].pontos + 1;
             clubes[sT].pontos = clubes[sT].pontos + 1;
+       
         }
     }
 }
