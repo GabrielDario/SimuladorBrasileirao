@@ -35,13 +35,31 @@ const definirTime = (clubeCopias, x) => {
 }
 
 const verificarEgerarRodada = () => {
-    //Adiciona
-    for (let i = 0; todosConfrontos.length < 4; i = i + 2) {
-
-        todosConfrontos.push(timesDaRodada[i] + timesDaRodada[i + 1]);
+    //Adicionando times na rodada
+    for (let i = 0; confontoRodada.length < (clubes.length / 2); i = i + 2) {
+        confontoRodada.push(timesDaRodada[i].time + timesDaRodada[i + 1].time);
+        
     }
-
-    //Verifica
+    //Confere com geral
+    for(let i = 0; i <= confontoRodada.length -1; i++) {
+        for(let j = 0; j <= todosConfrontos.length -1 ; j++) {
+            console.log("Conferindo " + confontoRodada[i] + " e " + todosConfrontos[j])
+            if(todosConfrontos[i] == confontoRodada[j]) {
+                console.log('Rodada igual');
+                alert('Já jogaram! : ' + confontoRodada[j]);
+                timesDaRodada = [];
+                confontoRodada = [];
+                gerarRodada();
+            }
+        }
+    }
+    //Coloca no todos os confrontos
+    for (let i = 0; i < clubes.length; i = i + 2) {
+        todosConfrontos.push(timesDaRodada[i].time + timesDaRodada[i + 1].time);
+        todosConfrontos.push(timesDaRodada[i + 1].time + timesDaRodada[i].time);
+    }
+    
+    
 }
 
 const escreverRodada = () => {
@@ -72,3 +90,4 @@ const quebrarLinha = () => {
         spanId.appendChild(br);
     }
 }
+
