@@ -49,7 +49,7 @@ const verificarEgerarRodada = () => {
                 alert('Já jogaram! : ' + confontoRodada[j]);
                 timesDaRodada = [];
                 confontoRodada = [];
-                gerarRodada();
+            
             }
         }
     }
