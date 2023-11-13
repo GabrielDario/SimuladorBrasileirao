@@ -15,15 +15,10 @@ const gerarRodada = () => {
         clubeCopias.push(clubes[i].nome);
     }
 
-    clubeCopias = definirTime(clubeCopias, 8);
-    clubeCopias = definirTime(clubeCopias, 7);
-    clubeCopias = definirTime(clubeCopias, 6);
-    clubeCopias = definirTime(clubeCopias, 5);
-    clubeCopias = definirTime(clubeCopias, 4);
-    clubeCopias = definirTime(clubeCopias, 3);
-    clubeCopias = definirTime(clubeCopias, 2);
-    clubeCopias = definirTime(clubeCopias, 1);
     
+    for (i = clubeCopias.length; i > 0 ; i--) {
+        clubeCopias = definirTime(clubeCopias, i);
+    }
     quebrarLinha();
     verificarEgerarRodada();
     escreverRodada();
@@ -46,7 +41,6 @@ const verificarEgerarRodada = () => {
     //Confere com geral
     for (let i = 0; i <= confontoRodada.length - 1; i++) {
         for (let j = 0; j <= todosConfrontos.length - 1; j++) {
-            console.log("Conferindo " + confontoRodada[i] + " e " + todosConfrontos[j])
             if (confontoRodada[i] == todosConfrontos[j]) {
                 timesDaRodada = [];
                 confontoRodada = [];

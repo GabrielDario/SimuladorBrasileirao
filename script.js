@@ -1,12 +1,26 @@
 //Lista de times e seu atributos
-let clubes = [{ nome: 'São Paulo', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Vasco', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Inter', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Grêmio', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Flamengo', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Goiás', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+let clubes = [
 { nome: 'Palmeiras', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Cruzeiro', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 }];
+{ nome: 'Botafogo', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+{ nome: 'Grêmio', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+{ nome: 'Bragantino', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+{ nome: 'Atlético-MG', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+{ nome: 'Flamengo', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+{ nome: 'Atlético-PR', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+{ nome: 'Fluminense', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+{ nome: 'Cuiabá', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+{ nome: 'São Paulo', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+
+{ nome: 'Corinthians', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+{ nome: 'Fortaleza', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+{ nome: 'Internacional', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+{ nome: 'Santos', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+{ nome: 'Vasco', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+{ nome: 'Bahia', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+{ nome: 'Cruzeiro', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+{ nome: 'Goiás', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+{ nome: 'Coritiba', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+{ nome: 'América-MG', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 }];
 
 //Botões
 let rodada = document.getElementById("rodada");
@@ -49,7 +63,7 @@ const gerarTabela = () => {
     col5.innerText = 'Saldo de Gols';
     col5.style.fontWeight = '900';
 
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < clubes.length; i++) {
         const linha = tabela.insertRow(-1);
         const col1 = linha.insertCell(0)
         const col2 = linha.insertCell(1)
@@ -102,7 +116,7 @@ const ordenarTabela = () => {
 }
 
 const clicarRodada = () => {
-    if (nRodada < 7) {
+    if (nRodada < (clubes.length -1)) {
         tabela.innerHTML = "";
         gerarRodada();
         nRodada = retornarRodada();
@@ -115,10 +129,13 @@ const clicarRodada = () => {
         confontoRodada = [];
 
         if (cancelarRodada == true) {
+            console.log(tentativas);
             clicarRodada();
+            
         } else {
             cancelarRodada = false;
-            alert("Tentativas: " + tentativas + "\nrodada:" + nRodada);
+            alert("Quantas vezes troco de rodada até achar uma que não se repita: " + tentativas 
+            + "\n" + nRodada + "º Rodada");
             tentativas = 0;
         }
     } else {

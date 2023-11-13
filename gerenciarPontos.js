@@ -36,7 +36,7 @@ const compararGols = () => {
     let sT;
     let sgpT;
     let sgsT;
-    for (i = 0; i < 8; i = i + 2) { // PERCORRER OS TIMES
+    for (i = 0; i < clubes.length; i = i + 2) { // PERCORRER OS TIMES
         
         for(j = 0; j < clubes.length; j++) { //Percorrer primeiro time esquerda
             timeGanhou = timesDaRodada[i].time;
