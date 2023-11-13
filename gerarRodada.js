@@ -1,5 +1,4 @@
 
-var cancelarRodada = new Boolean(false);
 const retornarRodada = () => {
     if(cancelarRodada == false) {
         nRodada++;
@@ -24,7 +23,7 @@ const gerarRodada = () => {
     clubeCopias = definirTime(clubeCopias, 3);
     clubeCopias = definirTime(clubeCopias, 2);
     clubeCopias = definirTime(clubeCopias, 1);
-
+    
     quebrarLinha();
     verificarEgerarRodada();
     escreverRodada();
@@ -48,14 +47,15 @@ const verificarEgerarRodada = () => {
     for (let i = 0; i <= confontoRodada.length - 1; i++) {
         for (let j = 0; j <= todosConfrontos.length - 1; j++) {
             console.log("Conferindo " + confontoRodada[i] + " e " + todosConfrontos[j])
-            if (todosConfrontos[i] == confontoRodada[j]) {
-                console.log('Rodada igual');
-                alert('Já jogaram! : ' + confontoRodada[j]);
+            if (confontoRodada[i] == todosConfrontos[j]) {
                 timesDaRodada = [];
                 confontoRodada = [];
                 cancelarRodada = true; 
+                tentativas++;
                 break;
                 
+            } else {
+                cancelarRodada = false;
             }
         }
     }
@@ -93,7 +93,7 @@ const escreverRodada = () => {
 
 const quebrarLinha = () => {
     console.log(nRodada)
-    if (nRodada % 4 == 0) {
+    if (nRodada % 4 == 0 && cancelarRodada == false) {
         var br = document.createElement("br");
         spanId.appendChild(br);
     }

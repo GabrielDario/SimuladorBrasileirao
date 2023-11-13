@@ -22,7 +22,8 @@ const verde = document.getElementById("verde");
 
 //Variáveis auxiliares
 let nRodada = 0;
-
+var cancelarRodada = new Boolean(false);
+let tentativas = 0;
 //Times
 let todosConfrontos = [];
 let timesDaRodada = [];
@@ -85,33 +86,48 @@ const ordenarTabela = () => {
             }
         }
     }
-//Verificar vitorias e saldo de gols
-for (i = 0; i < clubes.length - 1; i++) {
-    if (clubes[i].vitorias == clubes[i + 1].vitorias && clubes[i].pontos == clubes[i + 1].pontos)  {
-        if (clubes[i].saldoGols < clubes[i + 1].saldoGols) {
-            let copairObjeto = clubes[i + 1];
-            clubes[i + 1] = clubes[i];
-            clubes[i] = copairObjeto;
-            i--;
+    //Verificar vitorias e saldo de gols
+    for (i = 0; i < clubes.length - 1; i++) {
+        if (clubes[i].vitorias == clubes[i + 1].vitorias && clubes[i].pontos == clubes[i + 1].pontos) {
+            if (clubes[i].saldoGols < clubes[i + 1].saldoGols) {
+                let copairObjeto = clubes[i + 1];
+                clubes[i + 1] = clubes[i];
+                clubes[i] = copairObjeto;
+                i--;
+            }
         }
     }
-}
 
     return clubes;
 }
 
 const clicarRodada = () => {
-    tabela.innerHTML = "";
-    gerarRodada();
-    nRodada = retornarRodada();
+    if (nRodada < 7) {
+        tabela.innerHTML = "";
+        gerarRodada();
+        nRodada = retornarRodada();
 
-    if(cancelarRodada == false) {
-        gerenciarPontos();
+        if (cancelarRodada == false) {
+            gerenciarPontos();
+        }
+
+        gerarTabela();
+        confontoRodada = [];
+
+        if (cancelarRodada == true) {
+            clicarRodada();
+        } else {
+            cancelarRodada = false;
+            alert("Tentativas: " + tentativas + "\nrodada:" + nRodada);
+            tentativas = 0;
+        }
+    } else {
+        alert("A competição já está encerrada!\n " + clubes[0].nome + " CAMPEÃO!");
     }
-   
-    gerarTabela();
-    confontoRodada = [];
-    cancelarRodada = false;
+    if(tentativas >= 500) {
+         alert('Estourou!!');
+         location.reload();
+    }
 }
 
 rodada.addEventListener("click", e => {
