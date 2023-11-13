@@ -75,18 +75,27 @@ const ordenarTabela = () => {
         }
         return 0;
     });
-
+    //Verificar pontos e vitorias
     for (i = 0; i < clubes.length - 1; i++) {
         if (clubes[i].pontos == clubes[i + 1].pontos) {
-            if (clubes[i].saldoGols < clubes[i + 1].saldoGols) {
+            if (clubes[i].vitorias < clubes[i + 1].vitorias) {
                 let copairObjeto = clubes[i + 1];
                 clubes[i + 1] = clubes[i];
                 clubes[i] = copairObjeto;
             }
         }
     }
-
-
+//Verificar vitorias e saldo de gols
+for (i = 0; i < clubes.length - 1; i++) {
+    if (clubes[i].vitorias == clubes[i + 1].vitorias && clubes[i].pontos == clubes[i + 1].pontos)  {
+        if (clubes[i].saldoGols < clubes[i + 1].saldoGols) {
+            let copairObjeto = clubes[i + 1];
+            clubes[i + 1] = clubes[i];
+            clubes[i] = copairObjeto;
+            i--;
+        }
+    }
+}
 
     return clubes;
 }
@@ -95,9 +104,14 @@ const clicarRodada = () => {
     tabela.innerHTML = "";
     gerarRodada();
     nRodada = retornarRodada();
-    gerenciarPontos();
+
+    if(cancelarRodada == false) {
+        gerenciarPontos();
+    }
+   
     gerarTabela();
     confontoRodada = [];
+    cancelarRodada = false;
 }
 
 rodada.addEventListener("click", e => {
