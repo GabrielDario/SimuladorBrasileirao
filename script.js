@@ -1,26 +1,26 @@
 //Lista de times e seu atributos
 let clubes = [
-{ nome: 'Palmeiras', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Botafogo', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Grêmio', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Bragantino', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Atlético-MG', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Flamengo', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Atlético-PR', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Fluminense', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Cuiabá', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'São Paulo', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+    { nome: 'Palmeiras', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+    { nome: 'Botafogo', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+    { nome: 'Grêmio', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+    { nome: 'Bragantino', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+    { nome: 'Atlético-MG', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+    { nome: 'Flamengo', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+    { nome: 'Atlético-PR', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+    { nome: 'Fluminense', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+    { nome: 'Cuiabá', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+    { nome: 'São Paulo', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
 
-{ nome: 'Corinthians', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Fortaleza', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Internacional', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Santos', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Vasco', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Bahia', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Cruzeiro', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Goiás', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'Coritiba', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-{ nome: 'América-MG', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 }];
+    { nome: 'Corinthians', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+    { nome: 'Fortaleza', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+    { nome: 'Internacional', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+    { nome: 'Santos', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+    { nome: 'Vasco', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+    { nome: 'Bahia', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+    { nome: 'Cruzeiro', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+    { nome: 'Goiás', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+    { nome: 'Coritiba', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+    { nome: 'América-MG', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 }];
 
 //Botões
 let rodada = document.getElementById("rodada");
@@ -38,11 +38,37 @@ const verde = document.getElementById("verde");
 let nRodada = 0;
 var cancelarRodada = new Boolean(false);
 let tentativas = 0;
+var zerarRodada = new Boolean(false);
 //Times
 let todosConfrontos = [];
 let timesDaRodada = [];
 let confontoRodada = [];
 const gerarTabela = () => {
+
+    if (zerarRodada == true) {
+        clubes = [
+            { nome: 'Palmeiras', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+            { nome: 'Botafogo', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+            { nome: 'Grêmio', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+            { nome: 'Bragantino', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+            { nome: 'Atlético-MG', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+            { nome: 'Flamengo', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+            { nome: 'Atlético-PR', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+            { nome: 'Fluminense', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+            { nome: 'Cuiabá', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+            { nome: 'São Paulo', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+
+            { nome: 'Corinthians', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+            { nome: 'Fortaleza', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+            { nome: 'Internacional', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+            { nome: 'Santos', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+            { nome: 'Vasco', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+            { nome: 'Bahia', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+            { nome: 'Cruzeiro', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+            { nome: 'Goiás', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+            { nome: 'Coritiba', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+            { nome: 'América-MG', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 }];
+    }
 
     clubes = ordenarTabela();
     const linha = tabela.insertRow(-1);
@@ -78,6 +104,7 @@ const gerarTabela = () => {
         col5.innerText = clubes[i].saldoGols;
 
     }
+    zerarRodada = false;
 };
 const ordenarTabela = () => {
 
@@ -116,7 +143,7 @@ const ordenarTabela = () => {
 }
 
 const clicarRodada = () => {
-    if (nRodada < (clubes.length -1)) {
+    if (nRodada < (clubes.length - 1)) {
         tabela.innerHTML = "";
         gerarRodada();
         nRodada = retornarRodada();
@@ -131,19 +158,19 @@ const clicarRodada = () => {
         if (cancelarRodada == true) {
             console.log(tentativas);
             clicarRodada();
-            
+
         } else {
             cancelarRodada = false;
-            alert("Quantas vezes troco de rodada até achar uma que não se repita: " + tentativas 
-            + "\n" + nRodada + "º Rodada");
+            alert("Quantas vezes troco de rodada até achar uma que não se repita: " + tentativas
+                + "\n" + nRodada + "º Rodada");
             tentativas = 0;
         }
     } else {
         alert("A competição já está encerrada!\n " + clubes[0].nome + " CAMPEÃO!");
     }
-    if(tentativas >= 500) {
-         alert('Estourou!!');
-         location.reload();
+    if (tentativas >= 500) {
+        alert('Estourou!!');
+        location.reload();
     }
 }
 
@@ -159,9 +186,19 @@ mostrarTabela.addEventListener("click", e => {
 });
 
 zerar.addEventListener("click", e => {
-
+    clubes = [];
+    todosConfrontos = [];
+    nRodada = 0;
+    spanId.innerHTML = "";
+    tabela.innerHTML = "";
+    zerarRodada = true;
+    gerarTabela();
+    nRodada = 0;
+    tentativas = 0;
+    alert("Campeonato zerado!");
 });
 
 window.addEventListener("load", () => {
     gerarTabela();
+
 });
