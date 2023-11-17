@@ -32,13 +32,18 @@ let zerar = document.getElementById("zerar");
 const tabela = document.getElementById("tabela");
 const span = document.querySelector("span");
 const spanId = document.getElementById("spanId");
+const tabelaId = document.getElementById("tabelaId");
 const verde = document.getElementById("verde");
+const dividindo = document.getElementById("dividindo");
 
 //Variáveis auxiliares
 let nRodada = 0;
 var cancelarRodada = new Boolean(false);
 let tentativas = 0;
-var zerarRodada = new Boolean(false);
+let zerarRodada = new Boolean(false);
+let auxAba = new Boolean(false);
+let auxTrocar = "rodada";
+
 //Times
 let todosConfrontos = [];
 let timesDaRodada = [];
@@ -124,6 +129,7 @@ const ordenarTabela = () => {
                 let copairObjeto = clubes[i + 1];
                 clubes[i + 1] = clubes[i];
                 clubes[i] = copairObjeto;
+
             }
         }
     }
@@ -134,7 +140,7 @@ const ordenarTabela = () => {
                 let copairObjeto = clubes[i + 1];
                 clubes[i + 1] = clubes[i];
                 clubes[i] = copairObjeto;
-                i--;
+                i = -1;
             }
         }
     }
@@ -156,9 +162,7 @@ const clicarRodada = () => {
         confontoRodada = [];
 
         if (cancelarRodada == true) {
-            console.log(tentativas);
             clicarRodada();
-
         } else {
             cancelarRodada = false;
             alert("Quantas vezes troco de rodada até achar uma que não se repita: " + tentativas
@@ -179,10 +183,18 @@ rodada.addEventListener("click", e => {
 });
 
 mostrarRodada.addEventListener("click", e => {
+    const ul = document.getElementById("dividindo");
+    let primeiro = ul.children[0].id;
+
+    if(primeiro != "primeiro") {
+        const ultimo = document.getElementById("dividindo").lastElementChild;
+        dividindo.insertBefore(ultimo, dividindo.children[0]);
+    }
 
 });
 
 mostrarTabela.addEventListener("click", e => {
+   
 });
 
 zerar.addEventListener("click", e => {

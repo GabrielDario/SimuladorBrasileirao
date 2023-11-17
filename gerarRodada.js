@@ -86,7 +86,6 @@ const escreverRodada = () => {
 }
 
 const quebrarLinha = () => {
-    console.log(nRodada)
     if (nRodada % 4 == 0 && cancelarRodada == false) {
         var br = document.createElement("br");
         spanId.appendChild(br);

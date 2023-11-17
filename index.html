@@ -28,20 +28,27 @@
 
                 <input type="submit" class="btn btn-danger float-right mb-3" id="zerar" value="Zerar Tabela">
 
-                <h2>Rodada</h2>
-                <span class="badge badge-secondary" id="spanId">
-                 <!-- São Paulo, Vasco, Inter, Grêmio, Flamengo, Goiás, Palmeiras e Cruzeiro -->
-                 
-                </span>
 
-                <h2>Tabela de jogos</h2>
-                <table>
+                <ul id="dividindo">
+                    <li id="primeiro">
+                        <span class="badge badge-secondary" id="spanId">
+                            <h2>Rodada</h2>
+                        </span>
+                    </li>
 
-                </table>
-              
-                <table class="table table-striped" id="tabela">
-                    
-                </table>
+                    <li id="segundo">
+                        <span id="tabelaId">
+                            <table class="table table-striped" id="tabela">
+                                <h2>Tabela de jogos</h2>
+                            </table>
+
+                        </span>
+                    </li>
+
+
+                </ul>
+
+
             </div>
 
 
@@ -53,4 +60,5 @@
 <script src="script.js"></script>
 <script src="gerarRodada.js"></script>
 <script src="gerenciarPontos.js"></script>
+
 </html>
