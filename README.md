@@ -9,7 +9,7 @@ Funçôes principais
  - Tabela ja começa de cara
  - O programa tem quatro botões: 
                Clique por rodada, mostrar rodada, mostrar classificação, (pesquisar rodada)depois e zerar tudo - CERTO
- - Priorizar tabela ou resultados da rodada 
+ - Priorizar tabela ou resultados da rodada -- CERTO
  - Fazer não repetir os times jogados - CERTO
  
  ----------------------------------------------------------------------
@@ -28,4 +28,4 @@ Funções secundárias
 
 ----------------------------------------------------------------------
 No momento
-       - Priorizar tabela ou resultados da rodada 
+    

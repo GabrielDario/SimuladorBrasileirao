@@ -194,7 +194,14 @@ mostrarRodada.addEventListener("click", e => {
 });
 
 mostrarTabela.addEventListener("click", e => {
-   
+    const ul = document.getElementById("dividindo");
+    let primeiro = ul.children[0].id;
+
+    if(primeiro == "primeiro") {
+        const ultimo = document.getElementById("dividindo").lastElementChild;
+        dividindo.insertBefore(ultimo, dividindo.children[0]);
+    }
+
 });
 
 zerar.addEventListener("click", e => {

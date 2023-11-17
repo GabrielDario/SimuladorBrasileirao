@@ -1,5 +1,6 @@
 ul {
     list-style-type: none;
+    padding-left: 0;
 }
 .content {
     text-align: center;
