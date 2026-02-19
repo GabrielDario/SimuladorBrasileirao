@@ -12,15 +12,15 @@ let clubes = [
     { nome: 'São Paulo', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
 
     { nome: 'Corinthians', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-    { nome: 'Fortaleza', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+    { nome: 'Remo', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
     { nome: 'Internacional', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
     { nome: 'Santos', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
     { nome: 'Vasco', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
     { nome: 'Bahia', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
     { nome: 'Cruzeiro', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
     { nome: 'Goiás', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-    { nome: 'Coritiba', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
-    { nome: 'América-MG', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 }];
+    { nome: 'Chapecoense', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 },
+    { nome: 'Santos', pontos: 0, vitorias: 0, saldoGols: 0, golsRodada: 0 }];
 
 //Botões
 let rodada = document.getElementById("rodada");
